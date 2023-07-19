@@ -9,7 +9,52 @@
 
 ## Upcoming release
 * For players:
-  * Fixed `findstr` error in installer for some players.
+  * Added support for overriding SMAPI configuration per `Mods` folder (thanks to Shockah!).
+
+* For mod authors:
+  * Added support for [custom update manifests](https://stardewvalleywiki.com/Modding:Modder_Guide/APIs/Update_checks#Custom_update_manifest) (thanks to Jamie Taylor!).
+
+## 3.18.4
+Released 24 June 2023 for Stardew Valley 1.5.6 or later.
+
+* For players:
+  * In multiplayer, the game/SMAPI window titles now show whether you're the main player or a farmhand.
+  * The `test_input` console command now logs input until the command is run again (instead of for 30 seconds).
+  * Fixed logged SMAPI errors not having line numbers on Linux/macOS.
+  * Fixed wezterm terminal support on Linux/macoS (thanks to romangraef!).
+  * Fixed install error if a game folder has an invalid symlink.
+
+* For mod authors:
+  * Added `--no-prompt` installer command-line argument for automated tools (thanks to NyCodeGHG!).
+  * Added clearer error message when a map tilesheet has no image source (thanks to atravita!).
+  * Fixed `Context.HasRemotePlayers` being true when there's no farmhands connected.
+  * Fixed error loading a mod if it explicitly sets `"MinimumApiVersion": null`.
+  * Updated Newtonsoft.Json 13.0.2 → 13.0.3 (see [changes](https://github.com/JamesNK/Newtonsoft.Json/releases/tag/13.0.3)) and Pintail 2.2.2 → 2.3.0 (see [changes](https://github.com/Nanoray-pl/Pintail/blob/master/docs/release-notes.md#230)).
+
+* For SMAPI toolkit users:
+  * Fixed `ModFolder` not being JSON-serializable.
+
+* For the web API:
+  * Fixed manifest schema format for the `examples` field (thanks to boneskull!).
+
+## 3.18.3
+Released 09 April 2023 for Stardew Valley 1.5.6 or later.
+
+* For players:
+  * Fixed `findstr` installer error for some players.
+  * Fixed installer error for some Linux players due to a non-portable shebang (thanks to freyacoded!).
+  * Fixed error using load order overrides when there are broken mods installed (thanks to atravita!).
+  * Removed `LargeAddressAware` flag on SMAPI (no longer needed since it's 64-bit now).
+  * Improved translations. Thanks to stylemate (updated Korean)!
+
+* For mod authors:
+  * Added `IsActiveForScreen()` method to `PerScreen<T>`.
+  * Updated to [FluentHttpClient](https://github.com/Pathoschild/FluentHttpClient#readme) 4.3.0 (see [changes](https://github.com/Pathoschild/FluentHttpClient/blob/develop/RELEASE-NOTES.md#430)).
+  * Adjusted `ModContentManager.HandleUnknownFileType` to let mods patch it.
+  * Fixed `Context.IsWorldReady` being editable by mods.
+
+* For the web UI:
+  * Updated the JSON validator/schema for Content Patcher 1.29.0.
 
 * For mod authors:
   * Added support for [custom update manifests](https://stardewvalleywiki.com/Modding:Modder_Guide/APIs/Update_checks#Custom_update_manifest) (thanks to Jamie Taylor!).
